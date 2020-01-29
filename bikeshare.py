@@ -46,22 +46,27 @@ def get_filters():
     done = False
     while not done:
         user_city = input('What city would you like to search for? ').lower()
+		#Checking to see if input can be mapped to our dictionary
         if user_city in cities:
             city = user_city
             done = True
-        else:
+        #The input could not be mapped, so giving the user a message on appropriate inputs and looping back to get the input again
+		else:
             print('I am sorry, I do not recognize that city. \nYour choices are Chicago, New York City, or Washington.')
     
     #Getting user input for which month to filter by (or no filter with the "all" choice)
     done = False
     while not done:
         user_month = input('What month would you like to look at?  You may choose "all". ').lower()
+		#Checking to see if input can be mapped to our dictionary
         if user_month in months:
             month = months[user_month]
             done = True
+		#Checking to see if the user input an appropriate number corresponding to a month
         elif user_month in months.values(): 
             month = user_month
             done = True
+		#The input could not be mapped, so giving the user a message on appropriate inputs and looping back to get the input again
         else:
             print('I am sorry, I do not recognize that month. \nYou can choose a month between January and June by its name or its number, or you may choose "all".')
     
@@ -69,12 +74,15 @@ def get_filters():
     done = False
     while not done:
         user_day = input('What day would you like to look at?  You may choose "all". ').lower()
-        if user_day in days:
+        #Checking to see if input can be mapped to our dictionary
+		if user_day in days:
             day = days[user_day]
             done = True
+		#Checking to see if the user input an appropriate number corresponding to a day
         elif user_day in days.values():
             day = user_day
             done = True
+		#The input could not be mapped, so giving the user a message on appropriate inputs and looping back to get the input again
         else:
             print('I am sorry, I do not recognize that day. \nYou can choose any day of the week or its number (Monday is 0), or you may choose "all".')
     
@@ -90,8 +98,8 @@ def load_data(city, month, day):
 
     Args:
         (str) city - name of the city to analyze
-        (str) month - name of the month to filter by, or "all" to apply no month filter
-        (str) day - name of the day of week to filter by, or "all" to apply no day filter
+        (str) month - number of the month to filter by, or "all" to apply no month filter
+        (str) day - number of the day of week to filter by, or "all" to apply no day filter
     Returns:
         df - Pandas DataFrame containing city data filtered by month and day
     """
@@ -119,8 +127,8 @@ def time_stats(df, city, month, day):
     Args:
         (dataframe) df - filtered dataframe
         (str) city - name of the city to analyze
-        (str) month - name of the month to filter by, or "all" to apply no month filter
-        (str) day - name of the day of week to filter by, or "all" to apply no day filter 
+        (str) month - number of the month to filter by, or "all" to apply no month filter
+        (str) day - number of the day of week to filter by, or "all" to apply no day filter 
     """
 
     print('\nCalculating The Most Frequent Times of Travel...\n')
@@ -194,16 +202,18 @@ def station_stats(df):
     common_end_station = df['End Station'].mode()[0]
     print(end_station_message.format(common_end_station))
 
-
     #Finding the most common trip combination of stations
     #Adding a column to the dataframe that concatenates the start and end station
     df['Trip Stations'] = df['Start Station'] + '-----' + df['End Station']
     #Separating the start and end station with the 5 dashes used in the concatenation
     common_trip = df['Trip Stations'].mode()[0].split('-----')
-    print(trip_message.format(common_trip[0], common_trip[1]))
+    
+	print(trip_message.format(common_trip[0], common_trip[1]))
     #Dropping the column we added to preserve the raw data
     df.drop(columns='Trip Stations', inplace=True)
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    
+	#Giving calculation time
+	print("\nThis took %s seconds." % (time.time() - start_time))
     #Formatting a division on the screen after calling this function
     print('-'*40)
 
