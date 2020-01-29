@@ -46,22 +46,27 @@ def get_filters():
     done = False
     while not done:
         user_city_in = input('What city would you like to search for? ').lower()
+		#Checking to see if input can be mapped to our dictionary
         if user_city_in in cities:
             city = user_city_in
             done = True
-        else:
+        #The input could not be mapped, so giving the user a message on appropriate inputs and looping back to get the input again
+		else:
             print('I am sorry, I do not recognize that city. \nYour choices are Chicago, New York City, or Washington.')
     
     #Getting user input for which month to filter by (or no filter with the "all" choice)
     done = False
     while not done:
         user_month_in = input('What month would you like to look at?  You may choose "all". ').lower()
+		#Checking to see if input can be mapped to our dictionary
         if user_month_in in months:
             month = months[user_month_in]
             done = True
+		#Checking to see if the user input an appropriate number corresponding to a month
         elif user_month_in in months.values(): 
             month = user_month_in
             done = True
+		#The input could not be mapped, so giving the user a message on appropriate inputs and looping back to get the input again
         else:
             print('I am sorry, I do not recognize that month. \nYou can choose a month between January and June by its name or its number, or you may choose "all".')
     
@@ -69,12 +74,15 @@ def get_filters():
     done = False
     while not done:
         user_day_in = input('What day would you like to look at?  You may choose "all". ').lower()
+		#Checking to see if input can be mapped to our dictionary
         if user_day_in in days:
             day = days[user_day_in]
             done = True
+		#Checking to see if the user input an appropriate number corresponding to a weekday
         elif user_day_in in days.values():
             day = user_day_in
             done = True
+		#The input could not be mapped, so giving the user a message on appropriate inputs and looping back to get the input again
         else:
             print('I am sorry, I do not recognize that day. \nYou can choose any day of the week or its number (Monday is 0), or you may choose "all".')
     
