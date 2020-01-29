@@ -45,9 +45,9 @@ def get_filters():
     #Getting user input for which city's data to pull 
     done = False
     while not done:
-        user_city_in = input('What city would you like to search for? ').lower()
-        if user_city_in in cities:
-            city = user_city_in
+        user_city = input('What city would you like to search for? ').lower()
+        if user_city in cities:
+            city = user_city
             done = True
         else:
             print('I am sorry, I do not recognize that city. \nYour choices are Chicago, New York City, or Washington.')
@@ -55,12 +55,12 @@ def get_filters():
     #Getting user input for which month to filter by (or no filter with the "all" choice)
     done = False
     while not done:
-        user_month_in = input('What month would you like to look at?  You may choose "all". ').lower()
-        if user_month_in in months:
-            month = months[user_month_in]
+        user_month = input('What month would you like to look at?  You may choose "all". ').lower()
+        if user_month in months:
+            month = months[user_month]
             done = True
-        elif user_month_in in months.values(): 
-            month = user_month_in
+        elif user_month in months.values(): 
+            month = user_month
             done = True
         else:
             print('I am sorry, I do not recognize that month. \nYou can choose a month between January and June by its name or its number, or you may choose "all".')
@@ -68,12 +68,12 @@ def get_filters():
     #Getting user input for which day of the week to filter the day on (0 for Monday...) or "all" for no filter
     done = False
     while not done:
-        user_day_in = input('What day would you like to look at?  You may choose "all". ').lower()
-        if user_day_in in days:
-            day = days[user_day_in]
+        user_day = input('What day would you like to look at?  You may choose "all". ').lower()
+        if user_day in days:
+            day = days[user_day]
             done = True
-        elif user_day_in in days.values():
-            day = user_day_in
+        elif user_day in days.values():
+            day = user_day
             done = True
         else:
             print('I am sorry, I do not recognize that day. \nYou can choose any day of the week or its number (Monday is 0), or you may choose "all".')
