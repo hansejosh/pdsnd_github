@@ -1,5 +1,5 @@
 ### Date created
-Created 1/28/2020.
+Created 1/28/2020:
 
 ### Get Bikeshare Data
 
