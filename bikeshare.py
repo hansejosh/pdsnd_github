@@ -98,8 +98,8 @@ def load_data(city, month, day):
 
     Args:
         (str) city - name of the city to analyze
-        (str) month - name of the month to filter by, or "all" to apply no month filter
-        (str) day - name of the day of week to filter by, or "all" to apply no day filter
+        (str) month - number of the month to filter by, or "all" to apply no month filter
+        (str) day - number of the day of week to filter by, or "all" to apply no day filter
     Returns:
         df - Pandas DataFrame containing city data filtered by month and day
     """
@@ -127,8 +127,8 @@ def time_stats(df, city, month, day):
     Args:
         (dataframe) df - filtered dataframe
         (str) city - name of the city to analyze
-        (str) month - name of the month to filter by, or "all" to apply no month filter
-        (str) day - name of the day of week to filter by, or "all" to apply no day filter 
+        (str) month - number of the month to filter by, or "all" to apply no month filter
+        (str) day - number of the day of week to filter by, or "all" to apply no day filter 
     """
 
     print('\nCalculating The Most Frequent Times of Travel...\n')
