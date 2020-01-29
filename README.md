@@ -1,15 +1,17 @@
 ### Date created
-Include the date you created this project and README file.
+Created 1/28/2020
 
-### Project Title
-Replace the Project Title
+### Get Bikeshare Data
 
 ### Description
-Describe what your project is about and what it does
+This python script takes user inputs in order to provide descriptive statistics about the chosen city and its bikeshare program.
 
 ### Files used
-Include the files used
-
+* Python file is [bikeshare.py](https://github.com/hansejosh/pdsnd_github/blob/master/bikeshare.py)
+* Three csv files containing the data (not uploaded to Git)
+	* chicago.csv
+	* new_york_city.csv
+	* washington.csv
+	
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
-
+Inspiration from [Udacity!](https://classroom.udacity.com)
