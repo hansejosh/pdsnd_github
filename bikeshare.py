@@ -182,13 +182,17 @@ def station_stats(df):
     print('\nCalculating The Most Popular Stations and Trip...\n')
     start_time = time.time()
 
+	start_station_message = 'The most common station to start a trip is the {} station.'
+	end_station_message = 'The most common station to end a trip is the {} station.'
+	trip_message = 'The most common trip started at {} and ended at {}.'
+	
     #Finding the most common start station
     common_start_station = df['Start Station'].mode()[0]
-    print('The most common station to start a trip is the {} station.'.format(common_start_station))
+    print(start_station_message.format(common_start_station))
 
     #Finding the most common end station
     common_end_station = df['End Station'].mode()[0]
-    print('The most common station to end a trip is the {} station.'.format(common_end_station))
+    print(end_station_message.format(common_end_station))
 
 
     #Finding the most common trip combination of stations
@@ -196,7 +200,7 @@ def station_stats(df):
     df['Trip Stations'] = df['Start Station'] + '-----' + df['End Station']
     #Separating the start and end station with the 5 dashes used in the concatenation
     common_trip = df['Trip Stations'].mode()[0].split('-----')
-    print('The most common trip started at {} and ended at {}.'.format(common_trip[0], common_trip[1]))
+    print(trip_message.format(common_trip[0], common_trip[1]))
     #Dropping the column we added to preserve the raw data
     df.drop(columns='Trip Stations', inplace=True)
     print("\nThis took %s seconds." % (time.time() - start_time))
